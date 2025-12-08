@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [emailId,setemailId]=useState('');
   const [password,setPassword]=useState('');
+  const [error,setError]=useState('')
   const dispatch=useDispatch()
   const navigate=useNavigate();
   const handleLogin=async()=>{
@@ -19,13 +20,15 @@ const Login = () => {
        dispatch(setUser(res.data.user))
        navigate('/');
     } catch (error) {
-      console.log("Login Error:",error);
+
+     setError(error.response.data.message)
+      
     }
    
   }
   return (
     <div className='flex justify-center mt-10 '>
-      <div className="card card-border bg-base-200 w-96 py-5">
+      <div className="card card-border bg-base-200 w-96 py-2">
         <div className="card-body flex justify-center items-center">
           <h2 className="card-title">Login</h2>
 
@@ -38,8 +41,8 @@ const Login = () => {
             <legend className="fieldset-legend">Password</legend>
             <input type="password" className="input w-full py-6" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Type here" />
           </fieldset>
-
-          <div className="card-actions justify-center mt-4 w-full">
+           {error && <p className='text-red-500'>{error}</p>}
+          <div className="card-actions justify-center mt-2 w-full">
             <button className="btn btn-primary w-full" onClick={handleLogin}>Login</button>
           </div>
         </div>
