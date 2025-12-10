@@ -53,87 +53,93 @@ const EditProfile = ({ user }) => {
   };
 
   return (
-    <>
-      <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-        <legend className="fieldset-legend">Edit your Profile</legend>
+  <div className="min-h-screen flex flex-col lg:flex-row justify-center items-start gap-10 p-6 bg-base-100">
 
-        <label className="label">FirstName</label>
-        <input
-          type="text"
-          className="input p-6"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="Enter your FirstName"
-        />
+    {/* ----- LEFT: Edit Form ----- */}
+    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box 
+                         w-full max-w-md border p-4 shadow-md">
+      <legend className="fieldset-legend text-lg font-semibold">
+        Edit your Profile
+      </legend>
 
-        <label className="label">LastName</label>
-        <input
-          type="text"
-          className="input p-6"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder="Enter your LastName"
-        />
+      <label className="label text-sm">First Name</label>
+      <input
+        type="text"
+        className="input w-full p-3 text-sm"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+      />
 
-        <label className="label">Email</label>
-        <input
-          type="text"
-          className="input p-6"
-          value={user?.emailId ?? ""}
-          readOnly
-        />
+      <label className="label text-sm">Last Name</label>
+      <input
+        type="text"
+        className="input w-full p-3 text-sm"
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
+      />
 
-        <label className="label">Photo Url</label>
-        <input
-          type="text"
-          className="input p-6"
-          value={photoUrl}
-          onChange={(e) => setPhotoUrl(e.target.value)}
-          placeholder="Enter your PhotoUrl"
-        />
+      <label className="label text-sm">Email</label>
+      <input
+        type="text"
+        className="input w-full p-3 text-sm"
+        value={user?.emailId ?? ""}
+        readOnly
+      />
 
-        <label className="label">Gender</label>
-        <input
-          type="text"
-          className="input p-6"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-          placeholder="Enter your gender"
-        />
+      <label className="label text-sm">Photo URL</label>
+      <input
+        type="text"
+        className="input w-full p-3 text-sm"
+        value={photoUrl}
+        onChange={(e) => setPhotoUrl(e.target.value)}
+      />
 
-        <label className="label">About</label>
-        <input
-          type="text"
-          className="input p-6"
-          value={about}
-          onChange={(e) => setAbout(e.target.value)}
-          placeholder="Enter your About"
-        />
-{error && <p className='text-red-500'>{error}</p>}
-        <button
-          className="btn btn-primary mt-4"
-          onClick={handleProfileUpdate}
-        >
-          Save Profile
-        </button>
-      </fieldset>
+      <label className="label text-sm">Gender</label>
+      <input
+        type="text"
+        className="input w-full p-3 text-sm"
+        value={gender}
+        onChange={(e) => setGender(e.target.value)}
+      />
 
-      {/* Preview Card */}
+      <label className="label text-sm">About</label>
+      <textarea
+        className="textarea w-full p-3 text-sm h-24 resize-none"
+        value={about}
+        onChange={(e) => setAbout(e.target.value)}
+      />
+
+      {error && <p className="text-red-500 text-sm">{error}</p>}
+
+      <button
+        className="btn btn-primary mt-4 w-full"
+        onClick={handleProfileUpdate}
+      >
+        Save Profile
+      </button>
+    </fieldset>
+
+    {/* ----- RIGHT: Preview Card ----- */}
+    <div className="flex justify-center w-full max-w-sm">
       <UserCard
         firstName={firstName}
         lastName={lastName}
         photoUrl={photoUrl}
         about={about}
       />
-      {update &&   <div className="toast toast-top toast-center">
-  
-  <div className="alert alert-success">
-    <span>Profile Updated successfully.</span>
+    </div>
+
+    {/* Toast Notification */}
+    {update && (
+      <div className="toast toast-top toast-center">
+        <div className="alert alert-success">
+          <span>Profile Updated successfully.</span>
+        </div>
+      </div>
+    )}
   </div>
-</div> }
-    
-    </>
-  );
+);
+
 };
 
 export default EditProfile;

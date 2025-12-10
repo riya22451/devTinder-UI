@@ -40,8 +40,18 @@ const Body = () => {
   return (
     <>
     <Navbar/>
-    <Outlet/>
-    <Footer/>
+    <div className="min-h-screen flex flex-col">
+
+ 
+  <main className="flex-grow">
+    <Outlet /> 
+    
+  </main>
+
+  
+  <Footer />
+</div>
+
     </>
   )
 }
