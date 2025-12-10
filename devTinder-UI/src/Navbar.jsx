@@ -3,7 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { removeUser } from './utils/userSlice'
-
+import { clearFeed } from './utils/feedSlice'
 const Navbar = () => {
   const selector=useSelector((store)=>store.userReducer)
   const dispatch=useDispatch()
@@ -14,6 +14,7 @@ const Navbar = () => {
      const res=await axios.post('http://localhost:3000/api/auth/logout',{},{withCredentials:true})
      if(res.status==200){
       dispatch(removeUser())
+      dispatch(clearFeed())
       navigate('/login')
      }
 
@@ -44,7 +45,7 @@ const Navbar = () => {
             <span className="badge">New</span>
           </Link>
         </li>
-        <li><a>Settings</a></li>
+        <li><Link to='/connections'>Connections</Link></li>
         <li><a onClick={logOut}>Logout</a></li>
       </ul>
     </div>
