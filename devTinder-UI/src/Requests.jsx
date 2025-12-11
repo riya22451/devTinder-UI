@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import axios, { Axios } from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { addRequests, clearRequests } from './utils/requestSlice'
+import { API_BASE_URL } from './utils/constants'
 const Requests = () => {
     const dispatch=useDispatch()
     const requests=useSelector((store)=>store.requests)
     const fetchRequest=async()=>{
         try {
-            const res=await axios.get("http://localhost:3000/api/user/requests",{withCredentials:true})
+            const res=await axios.get(API_BASE_URL+"api/user/requests",{withCredentials:true})
         console.log(res.data.requests)
         dispatch(addRequests(res.data.requests))
         } catch (error) {
@@ -17,7 +18,7 @@ const Requests = () => {
     }
     const reviewRequests=async(status,requestId)=>{
         try {
-             const res=await axios.post('http://localhost:3000/api/connection/request/review/'+status+'/'+requestId,{},{withCredentials:true})
+             const res=await axios.post(API_BASE_URL+'api/connection/request/review/'+status+'/'+requestId,{},{withCredentials:true})
              dispatch(clearRequests(requestId))
        
         } catch (error) {

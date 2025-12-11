@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { clearFeed } from './utils/feedSlice'
 import axios from 'axios'
+import { API_BASE_URL } from './utils/constants'
 
 const UserCard = ({ firstName, lastName, photoUrl, about, userId }) => {
   const dispatch = useDispatch()
@@ -9,7 +10,7 @@ const UserCard = ({ firstName, lastName, photoUrl, about, userId }) => {
   const handleRequest = async (status, userId) => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/connection/request/send/" + status + "/" + userId,
+        API_BASE_URL+"api/connection/request/send/" + status + "/" + userId,
         {},
         { withCredentials: true }
       )

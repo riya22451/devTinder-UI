@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import UserCard from './UserCard';
 import axios from 'axios';
 import { setUser } from './utils/userSlice';
+import { API_BASE_URL } from './utils/constants';
 
 const EditProfile = ({ user }) => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const EditProfile = ({ user }) => {
     try {
       setError("")
       const res = await axios.patch(
-  "http://localhost:3000/api/profile/edit",
+  API_BASE_URL+"api/profile/edit",
   {
     firstName,
     lastName,
