@@ -47,9 +47,9 @@ const Login = () => {
         age
       },{withCredentials:true});
       dispatch(setUser(res.data.user))
-      
+       return navigate("/profile");
     } catch (error) {
-      setError(error.response.data.message)
+      setError(error?.response?.data?.message || 'Signup failed')
     }
   }
  return (
