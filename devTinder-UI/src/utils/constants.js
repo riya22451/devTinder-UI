@@ -1,1 +1,1 @@
-export const API_BASE_URL = 'https://devtinder-1-hw9e.onrender.com/';
+export const API_BASE_URL = 'https://devtinder-26ov.onrender.com/';
