@@ -47,7 +47,7 @@ const Login = () => {
         age
       },{withCredentials:true});
       dispatch(setUser(res.data.user))
-      setLogin(true)
+      
     } catch (error) {
       setError(error.response.data.message)
     }
