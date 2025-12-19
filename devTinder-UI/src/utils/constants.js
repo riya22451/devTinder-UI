@@ -1,1 +1,1 @@
-export const API_BASE_URL = 'https://dev-tinder-one-orpin.vercel.app/';
+export const API_BASE_URL = 'https://dev-tinder-4y5nql2h7-riyas-projects-ae18c780.vercel.app/';
