@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import UserCard from './UserCard';
 import axios from 'axios';
 import { setUser } from './utils/userSlice';
-import { API_BASE_URL } from './utils/constants';
+import { API_BASE_URL } from './utils/constants.js';
 
 const EditProfile = ({ user }) => {
   const dispatch = useDispatch();
