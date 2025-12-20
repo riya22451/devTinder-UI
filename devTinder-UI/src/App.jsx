@@ -9,6 +9,7 @@ import Feed from './Feed.jsx'
 import Profile from './Profile.jsx'
 import Connections from './Connections.jsx'
 import Requests from './Requests.jsx'
+import Premium from './Premium.jsx'
 const App = () => {
   return (
   <>
@@ -21,6 +22,7 @@ const App = () => {
     <Route path='/profile' element={<Profile/>}/>
     <Route path='/connections' element={<Connections/>}/>
     <Route path='/requests' element={<Requests/>}/>
+     <Route path='/premium' element={<Premium/>}/>
     </Route>
     
    </Routes>
