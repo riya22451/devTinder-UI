@@ -63,7 +63,9 @@ console.log(data)
     
   navigate(data.url)
   } catch (err) {
-    console.error("Payment error:", err);
+    console.log("Payment error full:", error)
+  console.log("Message:", error?.message)
+  console.log("Response:", error?.response)
   }
 };
   return (
