@@ -22,7 +22,7 @@ const EditProfile = ({ user }) => {
     try {
       setError("")
       const res = await axios.patch(
-  API_BASE_URL+"api/profile/edit",
+  "https://dev-tinder-backend-taupe.vercel.app/api/profile/edit",
   {
     firstName,
     lastName,
