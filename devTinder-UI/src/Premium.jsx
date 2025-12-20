@@ -53,7 +53,7 @@ const Premium = () => {
     const navigate=useNavigate()
     const handlePayment = async (plan) => {
   try {
-    const res = await axios.post("api/payment/create", {
+    const res = await axios.post(API_BASE_URL+"api/payment/create", {
       plan
     },{withCredentials:true});
 
