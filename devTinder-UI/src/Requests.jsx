@@ -53,8 +53,8 @@ const Requests = () => {
             >
               {/* Photo */}
               <img
-                src={user.photoUrl}
-                alt={user.firstName}
+                src={user?.photoUrl}
+                alt={user?.firstName}
                 className="w-16 h-16 rounded-full object-cover"
               />
 
