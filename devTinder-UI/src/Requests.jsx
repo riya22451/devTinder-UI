@@ -61,9 +61,9 @@ const Requests = () => {
               {/* Text */}
               <div className="flex-1">
                 <h3 className="text-lg font-semibold">
-                  {user.firstName} {user.lastName}
+                  {user?.firstName} {user?.lastName}
                 </h3>
-                <p className="text-gray-600 text-sm">{user.about}</p>
+                <p className="text-gray-600 text-sm">{user?.about}</p>
               </div>
 
               {/* Buttons */}
