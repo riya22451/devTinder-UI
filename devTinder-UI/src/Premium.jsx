@@ -41,7 +41,7 @@ const Premium = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/profile`, {
+        const res = await axios.get(`${API_BASE_URL}api/profile`, {
           withCredentials: true,
         });
 
