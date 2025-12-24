@@ -10,6 +10,7 @@ import Profile from './Profile.jsx'
 import Connections from './Connections.jsx'
 import Requests from './Requests.jsx'
 import Premium from './Premium.jsx'
+import Chat from './Chat.jsx'
 const App = () => {
   return (
   <>
@@ -23,6 +24,7 @@ const App = () => {
     <Route path='/connections' element={<Connections/>}/>
     <Route path='/requests' element={<Requests/>}/>
      <Route path='/premium' element={<Premium/>}/>
+     <Route path='/chat/:targetUserId' element={<Chat/>}/>
     </Route>
     
    </Routes>

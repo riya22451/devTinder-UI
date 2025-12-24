@@ -1,19 +1,20 @@
-import axios from 'axios'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setConnections } from './utils/connectionSlice'
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setConnections } from './utils/connectionSlice';
 import { API_BASE_URL } from './utils/constants';
+import { useNavigate } from 'react-router-dom';
 
 const Connections = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const connection = useSelector((store) => store.connections);
 
   const fetchConnections = async () => {
     try {
-      const res = await axios.get(API_BASE_URL+"api/user/connections", {
+      const res = await axios.get(API_BASE_URL + "api/user/connections", {
         withCredentials: true
       });
-      console.log(res.data.connections);
       dispatch(setConnections(res.data.connections));
     } catch (error) {
       console.log(error);
@@ -41,7 +42,7 @@ const Connections = () => {
 
       <div className="divide-y divide-gray-300">
         {connection.map((conn) => (
-          <div 
+          <div
             key={conn._id}
             className="flex items-center py-4 gap-4"
           >
@@ -57,6 +58,15 @@ const Connections = () => {
               </h3>
               <p className="text-gray-600 text-sm">{conn.about}</p>
             </div>
+
+            {/* ✅ Chat Button */}
+            <button
+              onClick={() => navigate(`/chat/${conn._id}`)}
+              className="px-4 py-2 bg-indigo-600 text-white rounded-lg
+                         hover:bg-indigo-700 transition"
+            >
+              Chat
+            </button>
           </div>
         ))}
       </div>
