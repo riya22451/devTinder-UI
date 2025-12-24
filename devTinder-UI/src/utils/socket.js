@@ -1,4 +1,4 @@
 import io from "socket.io-client"
 export const createSocketConnection=()=>{
-    return io("https://devtinder-backend-zyql.onrender.com")
+    return io("https://dev-tinder-backend-taupe.vercel.app")
 }
