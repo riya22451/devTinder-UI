@@ -20,7 +20,7 @@ const Login = () => {
   const navigate=useNavigate();
   const handleLogin=async()=>{
     try {
-       const res=await axios.post(API_BASE_URL+'api/auth/login',{
+       const res=await axios.post(API_BASE_URL+'api/auth/login',{ // api call
       emailId,
       password
        },{withCredentials:true});
