@@ -20,7 +20,7 @@ const Chat = () => {
 const FetchChatMessages = async () => {
   try {
     const res = await axios.get(
-      "https://dev-tinder-backend-taupe.vercel.app/"+`chat/${targetUserId}`,
+      API_BASE_URL+`chat/${targetUserId}`,
       { withCredentials: true }
     );  
 
