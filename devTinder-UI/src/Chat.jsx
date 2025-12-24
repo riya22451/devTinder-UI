@@ -20,7 +20,7 @@ const Chat = () => {
 const FetchChatMessages = async () => {
   try {
     const res = await axios.get(
-      API_BASE_URL+`chat/${targetUserId}`,
+      "https://devtinder-backend-zyql.onrender.com/"+`chat/${targetUserId}`,
       { withCredentials: true }
     );  
 
